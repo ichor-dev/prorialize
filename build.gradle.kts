@@ -14,6 +14,9 @@ plugins {
 
 group = "fyi.pauli"
 version = "1.0.0"
+description = "Kotlin.serialization library for the Minecraft protocol."
+val authors = listOf("btwonion", "kxmpxtxnt")
+val isSnapshot = false
 
 repositories {
     mavenCentral()
@@ -58,34 +61,63 @@ kotlin {
     }
 }
 
+val githubRepo = "ichor-dev/prorialize"
 githubRelease {
     token(findProperty("github.token")?.toString())
 
-    owner("ichor-dev")
-    repo("ichor")
+    val (owner, repo) = githubRepo.split('/')
+    owner(owner)
+    repo(repo)
     tagName("v${project.version}")
     overwrite(true)
-    releaseAssets(tasks["kotlin"].outputs.files)
+    releaseAssets(components["kotlin"])
     targetCommitish("main")
 }
 
 publishing {
     repositories {
         maven {
-            name = "nyon"
-            url = uri("https://repo.nyon.dev/releases")
+            name = "ossrh"
             credentials(PasswordCredentials::class)
-            authentication {
-                create<BasicAuthentication>("basic")
-            }
+            setUrl(
+                if (!isSnapshot) "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
+                else "https://s01.oss.sonatype.org/content/repositories/snapshots"
+            )
         }
     }
+
     publications {
-        create<MavenPublication>("maven") {
-            groupId = "fyi.pauli"
-            artifactId = "prorialize"
-            version = project.version.toString()
+        register<MavenPublication>(project.name) {
             from(components["kotlin"])
+
+            this.groupId = project.group.toString()
+            this.artifactId = project.name
+            this.version = version.toString()
+
+            pom {
+                name.set(project.name)
+                description.set(project.description)
+
+                developers {
+                    authors.forEach {
+                        developer { name.set(it) }
+                    }
+                }
+
+                licenses {
+                    license {
+                        name.set("Apache License 2.0")
+                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+
+                url.set("https://github.com/")
+
+                scm {
+                    connection.set("scm:git:git://github.com/${githubRepo}.git")
+                    url.set("https://github.com/${githubRepo}")
+                }
+            }
         }
     }
 }
