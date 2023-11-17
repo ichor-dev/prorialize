@@ -1,6 +1,9 @@
 @file:OptIn(org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl::class)
 
-import org.jetbrains.kotlin.gradle.targets.jvm.tasks.KotlinJvmTest
+import org.gradle.internal.logging.text.StyledTextOutput.Style.Failure
+import org.gradle.internal.logging.text.StyledTextOutput.Style.Success
+import org.gradle.internal.logging.text.StyledTextOutputFactory
+import org.gradle.kotlin.dsl.support.serviceOf
 
 plugins {
     kotlin("multiplatform") version "1.9.20"
@@ -59,6 +62,18 @@ kotlin {
             }
         }
     }
+}
+
+configure<SigningExtension> {
+    val publications = extensions.getByType<PublishingExtension>().publications
+    val publicationCount = publications.size
+    val message = "The following $publicationCount publication(s) are getting signed: ${publications.map(Named::getName)}"
+    val style = when (publicationCount) {
+        0 -> Failure
+        else -> Success
+    }
+    serviceOf<StyledTextOutputFactory>().create("signing").style(style).println(message)
+    sign(*publications.toTypedArray())
 }
 
 val githubRepo = "ichor-dev/prorialize"
@@ -120,8 +135,4 @@ publishing {
             }
         }
     }
-}
-
-signing {
-    sign(publishing.publications)
 }
