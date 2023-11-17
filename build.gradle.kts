@@ -4,13 +4,15 @@ import org.gradle.internal.logging.text.StyledTextOutput.Style.Failure
 import org.gradle.internal.logging.text.StyledTextOutput.Style.Success
 import org.gradle.internal.logging.text.StyledTextOutputFactory
 import org.gradle.kotlin.dsl.support.serviceOf
+import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
     kotlin("multiplatform") version "1.9.20"
     kotlin("plugin.serialization") version "1.9.20"
 
-    id("com.github.breadmoirai.github-release") version "2.4.1"
+    id("org.jetbrains.dokka") version "1.9.10"
 
+    id("com.github.breadmoirai.github-release") version "2.4.1"
     `maven-publish`
     signing
 }
@@ -60,6 +62,18 @@ kotlin {
                 implementation("org.junit.jupiter:junit-jupiter-engine:5.10.1")
             }
         }
+    }
+}
+
+tasks {
+    register("publishLibrary") {
+        group = "publishing"
+        dependsOn("githubRelease")
+        dependsOn("publish")
+    }
+
+    withType<DokkaTask> {
+        outputDirectory.set(File("docs/"))
     }
 }
 

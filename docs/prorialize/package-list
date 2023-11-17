@@ -1,0 +1,38 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives////PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types.primitives/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftEnumType.BYTE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-enum-type/-b-y-t-e/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftEnumType.INT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-enum-type/-i-n-t/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftEnumType.STRING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-enum-type/-s-t-r-i-n-g/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftEnumType.UNSIGNED_BYTE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-enum-type/-u-n-s-i-g-n-e-d_-b-y-t-e/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftEnumType.VAR_INT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-enum-type/-v-a-r_-i-n-t/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftEnumType///PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-enum-type/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftEnumType/entries/#/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-enum-type/entries.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftEnumType/valueOf/#kotlin.String/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-enum-type/value-of.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftEnumType/values/#/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-enum-type/values.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftNumberType.DEFAULT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-number-type/-d-e-f-a-u-l-t/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftNumberType.UNSIGNED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-number-type/-u-n-s-i-g-n-e-d/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftNumberType.VAR///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-number-type/-v-a-r/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftNumberType///PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-number-type/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftNumberType/entries/#/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-number-type/entries.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftNumberType/valueOf/#kotlin.String/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-number-type/value-of.html
+$dokka.location:fyi.pauli.prolialize.serialization.types.primitives/MinecraftNumberType/values/#/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types.primitives/-minecraft-number-type/values.html
+$dokka.location:fyi.pauli.prolialize.serialization.types////PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types/EnumSerial///PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-enum-serial/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types/EnumSerial/ordinal/#/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-enum-serial/ordinal.html
+$dokka.location:fyi.pauli.prolialize.serialization.types/EnumType///PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-enum-type/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types/EnumType/type/#/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-enum-type/type.html
+$dokka.location:fyi.pauli.prolialize.serialization.types/NumberType///PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-number-type/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types/NumberType/type/#/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-number-type/type.html
+$dokka.location:fyi.pauli.prolialize.serialization.types/StringLength///PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-string-length/index.html
+$dokka.location:fyi.pauli.prolialize.serialization.types/StringLength/maxLength/#/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-string-length/max-length.html
+$dokka.location:fyi.pauli.prolialize////PointingToDeclaration/prorialize/fyi.pauli.prolialize/index.html
+$dokka.location:fyi.pauli.prolialize/MinecraftProtocol///PointingToDeclaration/prorialize/fyi.pauli.prolialize/-minecraft-protocol/index.html
+$dokka.location:fyi.pauli.prolialize/MinecraftProtocol/MinecraftProtocol/#kotlinx.serialization.modules.SerializersModule/PointingToDeclaration/prorialize/fyi.pauli.prolialize/-minecraft-protocol/-minecraft-protocol.html
+$dokka.location:fyi.pauli.prolialize/MinecraftProtocol/decodeFromByteArray/#kotlinx.serialization.DeserializationStrategy[TypeParam(bounds=[kotlin.Any?])]#kotlin.ByteArray/PointingToDeclaration/prorialize/fyi.pauli.prolialize/-minecraft-protocol/decode-from-byte-array.html
+$dokka.location:fyi.pauli.prolialize/MinecraftProtocol/encodeToByteArray/#kotlinx.serialization.SerializationStrategy[TypeParam(bounds=[kotlin.Any?])]#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/prorialize/fyi.pauli.prolialize/-minecraft-protocol/encode-to-byte-array.html
+$dokka.location:fyi.pauli.prolialize/MinecraftProtocol/serializersModule/#/PointingToDeclaration/prorialize/fyi.pauli.prolialize/-minecraft-protocol/serializers-module.html
+fyi.pauli.prolialize
+fyi.pauli.prolialize.serialization.types
+fyi.pauli.prolialize.serialization.types.primitives
+
