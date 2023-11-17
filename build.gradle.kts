@@ -55,7 +55,6 @@ kotlin {
         }
 
         val jvmTest by getting {
-            dependsOn(commonTest)
             dependencies {
                 implementation(kotlin("test-junit5"))
                 implementation("org.junit.jupiter:junit-jupiter-engine:5.10.1")
@@ -89,6 +88,12 @@ githubRelease {
     targetCommitish("main")
 }
 
+val dokkaJar: Jar = tasks.create<Jar>("dokkaJar") {
+    group = "documentation"
+    archiveClassifier.set("javadoc")
+    from(tasks.findByName("dokkaHtml"))
+}
+
 publishing {
     repositories {
         maven {
@@ -104,6 +109,7 @@ publishing {
     publications {
         register<MavenPublication>(project.name) {
             from(components["kotlin"])
+            artifact(dokkaJar)
 
             this.groupId = project.group.toString()
             this.artifactId = project.name
@@ -125,8 +131,6 @@ publishing {
                         url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
                     }
                 }
-
-                url.set("https://github.com/")
 
                 scm {
                     connection.set("scm:git:git://github.com/${githubRepo}.git")
