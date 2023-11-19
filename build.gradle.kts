@@ -87,13 +87,21 @@ tasks {
 configure<SigningExtension> {
     val publications = extensions.getByType<PublishingExtension>().publications
     val publicationCount = publications.size
-    val message = "The following $publicationCount publication(s) are getting signed: ${publications.map(Named::getName)}"
+    val message =
+        "The following $publicationCount publication(s) are getting signed: ${publications.map(Named::getName)}"
     val style = when (publicationCount) {
         0 -> Failure
         else -> Success
     }
     serviceOf<StyledTextOutputFactory>().create("signing").style(style).println(message)
     sign(*publications.toTypedArray())
+
+    val signingTasks = tasks.filter { it.name.startsWith("sign") && it.name.endsWith("Publication") }
+    tasks.matching { it.name.startsWith("publish") }.configureEach {
+        signingTasks.forEach {
+            mustRunAfter(it.name)
+        }
+    }
 }
 
 val githubRepo = "ichor-dev/prorialize"
@@ -140,7 +148,6 @@ publishing {
     publications {
         register<MavenPublication>(project.name) {
             from(components["kotlin"])
-            artifact(dokkaJar)
 
             this.groupId = project.group.toString()
             this.artifactId = project.name
@@ -170,4 +177,8 @@ publishing {
             }
         }
     }
+}
+
+configure<PublishingExtension> {
+    publications.withType<MavenPublication>().configureEach { artifact(dokkaJar) }
 }
