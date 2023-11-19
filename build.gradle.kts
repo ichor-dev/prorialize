@@ -42,6 +42,8 @@ kotlin {
     linuxX64()
     linuxArm64()
     mingwX64()
+    wasmWasi()
+    js()
 
     sourceSets {
         val commonMain by getting {
