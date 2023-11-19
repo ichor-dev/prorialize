@@ -118,6 +118,16 @@ publishing {
                 else "https://s01.oss.sonatype.org/content/repositories/snapshots"
             )
         }
+
+        // Here for instant availability
+        maven {
+            name = "nyon"
+            url = uri("https://repo.nyon.dev/releases")
+            credentials(PasswordCredentials::class)
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+        }
     }
 
     publications {
