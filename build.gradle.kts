@@ -43,7 +43,10 @@ kotlin {
     linuxArm64()
     mingwX64()
     wasmWasi()
-    js()
+    js {
+        browser()
+        nodejs()
+    }
 
     sourceSets {
         val commonMain by getting {
