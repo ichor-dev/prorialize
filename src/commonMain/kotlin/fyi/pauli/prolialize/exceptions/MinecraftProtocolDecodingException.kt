@@ -6,4 +6,4 @@ package fyi.pauli.prolialize.exceptions
  *
  * Exception which will be thrown when an error occurs during decoding.
  */
-internal class MinecraftProtocolDecodingException(message: String) : RuntimeException(message)
+public class MinecraftProtocolDecodingException(message: String) : RuntimeException(message)

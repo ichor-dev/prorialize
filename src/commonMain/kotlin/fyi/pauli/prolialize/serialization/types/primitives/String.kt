@@ -9,16 +9,16 @@ import fyi.pauli.prolialize.serialization.types.primitives.VarIntSerializer.writ
  * @author btwonion
  * @since 11/11/2023
  *
- * Internal class for de-/serializing Minecraft formatted strings.
+ * Class for de-/serializing Minecraft formatted strings.
  */
-internal object MinecraftStringEncoder {
+public object MinecraftStringEncoder {
     /**
      * The default max string length Minecraft uses.
      */
-    const val MAX_STRING_LENGTH = 32767
+    public const val MAX_STRING_LENGTH: Int = 32767
 
     @ExperimentalStdlibApi
-    internal inline fun readString(
+    public inline fun readString(
         maxLength: Int = MAX_STRING_LENGTH,
         readByte: () -> Byte,
         readBytes: (length: Int) -> ByteArray,
@@ -38,7 +38,7 @@ internal object MinecraftStringEncoder {
         }
     }
 
-    internal inline fun writeString(
+    public inline fun writeString(
         string: String, writeByte: (Byte) -> Unit, writeFully: (ByteArray) -> Unit
     ) {
         val bytes = string.encodeToByteArray()

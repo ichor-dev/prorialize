@@ -13,14 +13,14 @@ public enum class MinecraftNumberType {
     DEFAULT, UNSIGNED, VAR
 }
 
-private const val SEGMENT_BITS = 0x7F.toByte() // 127
-private const val CONTINUE_BIT = 0x80.toByte() // 128
+public const val SEGMENT_BITS: Byte = 0x7F.toByte() // 127
+public const val CONTINUE_BIT: Byte = 0x80.toByte() // 128
 
 /**
- * Internal class to de-/serialize VarInts.
+ * Class to de-/serialize VarInts.
  */
-internal object VarIntSerializer {
-    internal inline fun readVarInt(
+public object VarIntSerializer {
+    public inline fun readVarInt(
         readByte: () -> Byte
     ): Int {
         var numRead = 0
@@ -38,7 +38,7 @@ internal object VarIntSerializer {
         return result
     }
 
-    internal inline fun writeVarInt(
+    public inline fun writeVarInt(
         value: Int,
         writeByte: (Byte) -> Unit,
     ) {
@@ -55,7 +55,7 @@ internal object VarIntSerializer {
     }
 
     @Suppress("unused")
-    fun varIntBytesCount(
+    public fun varIntBytesCount(
         value: Int,
     ): Int {
         var counter = 0
@@ -65,10 +65,10 @@ internal object VarIntSerializer {
 }
 
 /**
- * Internal class to de-/serialize VarLongs.
+ * Class to de-/serialize VarLongs.
  */
-internal object VarLongSerializer {
-    internal inline fun readVarLong(
+public object VarLongSerializer {
+    public inline fun readVarLong(
         readByte: () -> Byte
     ): Long {
         var numRead = 0
@@ -86,7 +86,7 @@ internal object VarLongSerializer {
         return result
     }
 
-    internal inline fun writeVarLong(
+    public inline fun writeVarLong(
         value: Long,
         writeByte: (Byte) -> Unit,
     ) {
@@ -103,7 +103,7 @@ internal object VarLongSerializer {
     }
 
     @Suppress("unused")
-    fun varLongBytesCount(
+    public fun varLongBytesCount(
         value: Long,
     ): Int {
         var counter = 0
