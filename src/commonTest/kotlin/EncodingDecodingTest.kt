@@ -27,7 +27,7 @@ class EncodingDecodingTest {
     )
 
     @Test
-    fun `number tests`() {
+    fun numberTests() {
         val mc = MinecraftProtocol()
         val test = NumberTest(double = 5.324)
         assertEquals(test, mc.toByteArrayAndBack(test))
@@ -51,7 +51,7 @@ class EncodingDecodingTest {
     }
 
     @Test
-    fun `string and enum test`() {
+    fun stringAndEnumTest() {
         val mc = MinecraftProtocol()
         val test = StringEnumTest(enum = StringEnumTest.TestEnum.Foo)
         assertEquals(test, mc.toByteArrayAndBack(test))
