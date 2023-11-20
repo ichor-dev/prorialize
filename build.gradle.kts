@@ -73,6 +73,20 @@ kotlin {
 }
 
 tasks {
+    withType<DokkaTask>().configureEach {
+        dokkaSourceSets.configureEach {
+            documentedVisibilities.set(
+                setOf(
+                    Visibility.PUBLIC,
+                    Visibility.PROTECTED,
+                    Visibility.PRIVATE,
+                    Visibility.INTERNAL,
+                    Visibility.PACKAGE
+                )
+            )
+        }
+    }
+
     register("publishLibrary") {
         group = "publishing"
         dependsOn("githubRelease")
