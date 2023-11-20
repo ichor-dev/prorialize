@@ -46,3 +46,10 @@ public annotation class EnumType(
 public annotation class EnumSerial(
     val ordinal: Int
 )
+
+/**
+ * Annotation to indicate that this collection should not be prefixed by a length VarInt.
+ */
+@SerialInfo
+@Target(AnnotationTarget.PROPERTY)
+public annotation class Unprefixed

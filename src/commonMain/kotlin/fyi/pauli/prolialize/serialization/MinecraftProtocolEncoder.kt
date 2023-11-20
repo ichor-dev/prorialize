@@ -4,6 +4,7 @@ import fyi.pauli.prolialize.desc.ProtocolDesc
 import fyi.pauli.prolialize.desc.extractEnumDescriptor
 import fyi.pauli.prolialize.desc.extractEnumElementDescriptor
 import fyi.pauli.prolialize.desc.extractProtocolDescriptor
+import fyi.pauli.prolialize.serialization.types.Unprefixed
 import fyi.pauli.prolialize.serialization.types.primitives.MinecraftEnumType
 import fyi.pauli.prolialize.serialization.types.primitives.MinecraftNumberType
 import fyi.pauli.prolialize.serialization.types.primitives.MinecraftStringEncoder.writeString
@@ -32,8 +33,10 @@ internal class MinecraftProtocolEncoder(
         return extractProtocolDescriptor(this@getTag, index)
     }
 
+    @OptIn(ExperimentalSerializationApi::class)
     override fun beginCollection(descriptor: SerialDescriptor, collectionSize: Int): CompositeEncoder {
-        writeVarInt(collectionSize) { output.writeByte(it) }
+        if (!descriptor.annotations.map { it::class }
+                .contains(Unprefixed::class)) writeVarInt(collectionSize) { output.writeByte(it) }
         return super.beginCollection(descriptor, collectionSize)
     }
 
@@ -92,7 +95,8 @@ internal class MinecraftProtocolEncoder(
             MinecraftEnumType.BYTE -> output.writeByte(enumDesc.ordinal.toByte())
             MinecraftEnumType.UNSIGNED_BYTE -> output.writeUByte(enumDesc.ordinal.toUByte())
             MinecraftEnumType.INT -> output.writeInt(enumDesc.ordinal)
-            MinecraftEnumType.STRING -> writeString(enumDescriptor.getElementName(ordinal),
+            MinecraftEnumType.STRING -> writeString(
+                enumDescriptor.getElementName(ordinal),
                 { output.writeByte(it) }) { output.write(it) }
         }
     }

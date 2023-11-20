@@ -5,6 +5,7 @@ import fyi.pauli.prolialize.desc.extractEnumDescriptor
 import fyi.pauli.prolialize.desc.extractProtocolDescriptor
 import fyi.pauli.prolialize.desc.findEnumIndexByTag
 import fyi.pauli.prolialize.exceptions.MinecraftProtocolDecodingException
+import fyi.pauli.prolialize.serialization.types.Unprefixed
 import fyi.pauli.prolialize.serialization.types.primitives.MinecraftEnumType
 import fyi.pauli.prolialize.serialization.types.primitives.MinecraftNumberType
 import fyi.pauli.prolialize.serialization.types.primitives.MinecraftStringEncoder.readString
@@ -35,7 +36,8 @@ internal class MinecraftProtocolDecoder(private val input: Buffer) : TaggedDecod
     }
 
     override fun decodeCollectionSize(descriptor: SerialDescriptor): Int {
-        return readVarInt { input.readByte() }
+        return if (descriptor.annotations.map { it::class }.contains(Unprefixed::class)) -1
+        else readVarInt { input.readByte() }
     }
 
     override fun decodeSequentially(): Boolean {
