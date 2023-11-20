@@ -65,6 +65,7 @@ $dokka.location:fyi.pauli.prolialize.serialization.types/NumberType///PointingTo
 $dokka.location:fyi.pauli.prolialize.serialization.types/NumberType/type/#/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-number-type/type.html
 $dokka.location:fyi.pauli.prolialize.serialization.types/StringLength///PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-string-length/index.html
 $dokka.location:fyi.pauli.prolialize.serialization.types/StringLength/maxLength/#/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-string-length/max-length.html
+$dokka.location:fyi.pauli.prolialize.serialization.types/Unprefixed///PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization.types/-unprefixed/index.html
 $dokka.location:fyi.pauli.prolialize.serialization////PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization/index.html
 $dokka.location:fyi.pauli.prolialize.serialization/MinecraftProtocolDecoder///PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization/-minecraft-protocol-decoder/index.html
 $dokka.location:fyi.pauli.prolialize.serialization/MinecraftProtocolDecoder/MinecraftProtocolDecoder/#kotlinx.io.Buffer/PointingToDeclaration/prorialize/fyi.pauli.prolialize.serialization/-minecraft-protocol-decoder/-minecraft-protocol-decoder.html
