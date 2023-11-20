@@ -23,4 +23,4 @@ fun main() {
 ```
 
 ## Docs
-The Dokka docs can be found on [GitHub Pages](https://ichor-dev.github.io/prorialize/).
+The docs can be found on [GitHub Pages](https://ichor-dev.github.io/prorialize/).
