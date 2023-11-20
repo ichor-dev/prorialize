@@ -78,10 +78,6 @@ tasks {
         dependsOn("githubRelease")
         dependsOn("publish")
     }
-
-    withType<DokkaTask> {
-        outputDirectory.set(File("docs/"))
-    }
 }
 
 configure<SigningExtension> {
