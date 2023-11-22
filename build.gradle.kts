@@ -19,8 +19,8 @@ plugins {
 }
 
 group = "fyi.pauli"
-version = "1.1.0"
-description = "Kotlin.serialization library for the Minecraft protocol."
+version = "1.0.0"
+description = "Kotlin.serialization library for the Minecraft Nbt format."
 val authors = listOf("btwonion", "kxmpxtxnt")
 val isSnapshot = false
 
@@ -115,7 +115,7 @@ configure<SigningExtension> {
     }
 }
 
-val githubRepo = "ichor-dev/prorialize"
+val githubRepo = "ichor-dev/nbterialize"
 githubRelease {
     token(findProperty("github.token")?.toString())
 
