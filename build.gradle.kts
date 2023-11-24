@@ -124,7 +124,6 @@ githubRelease {
     repo(repo)
     tagName("v${project.version}")
     overwrite(true)
-    releaseAssets(components["kotlin"])
     targetCommitish("main")
 }
 
