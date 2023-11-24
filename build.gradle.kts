@@ -18,7 +18,7 @@ plugins {
     signing
 }
 
-group = "fyi.pauli"
+group = "fyi.pauli.prorealize"
 version = "1.1.0"
 description = "Kotlin.serialization library for the Minecraft protocol."
 val authors = listOf("btwonion", "kxmpxtxnt")
