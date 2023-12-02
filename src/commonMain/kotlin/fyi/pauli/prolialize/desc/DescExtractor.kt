@@ -21,7 +21,7 @@ import kotlinx.serialization.descriptors.SerialDescriptor
 internal fun extractProtocolDescriptor(
     descriptor: SerialDescriptor, index: Int
 ): ProtocolDesc {
-    val format = descriptor.findElementAnnotation<NumberType>(index)?.type ?: MinecraftNumberType.DEFAULT
+    val format = descriptor.findElementAnnotation<NumberType>(index)?.type ?: MinecraftNumberType.VAR
     val maxStringLength =
         descriptor.findElementAnnotation<StringLength>(index)?.maxLength ?: MinecraftStringEncoder.MAX_STRING_LENGTH
     return ProtocolDesc(format, maxStringLength)
