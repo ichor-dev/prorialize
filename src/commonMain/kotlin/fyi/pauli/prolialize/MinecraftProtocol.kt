@@ -20,7 +20,7 @@ import kotlinx.serialization.modules.SerializersModule
  * When using enums you can use the @EnumSerial annotation to specify the number, which should be encoded.
  */
 public class MinecraftProtocol(
-    public override val serializersModule: SerializersModule = EmptySerializersModule()
+    public override var serializersModule: SerializersModule = EmptySerializersModule()
 ) : BinaryFormat {
 
     /**

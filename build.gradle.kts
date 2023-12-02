@@ -19,7 +19,7 @@ plugins {
 }
 
 group = "fyi.pauli.prorialize"
-version = "1.1.1"
+version = "1.1.2"
 description = "Kotlin.serialization library for the Minecraft protocol."
 val authors = listOf("btwonion", "kxmpxtxnt")
 val isSnapshot = false
