@@ -122,7 +122,7 @@ internal class MinecraftProtocolDecoder(private val input: Buffer) : TaggedDecod
     override fun beginStructure(descriptor: SerialDescriptor): CompositeDecoder {
         return when (descriptor.kind) {
             StructureKind.CLASS, StructureKind.LIST -> MinecraftProtocolDecoder(input)
-            else -> super.beginStructure(descriptor)
+            else -> MinecraftProtocolDecoder(input)
         }
     }
 }

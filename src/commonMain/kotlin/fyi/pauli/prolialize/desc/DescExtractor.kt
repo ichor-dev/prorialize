@@ -57,8 +57,6 @@ private inline fun <reified A : Annotation> SerialDescriptor.findElementAnnotati
 
 internal fun findEnumIndexByTag(
     descriptor: SerialDescriptor, serialOrdinal: Int
-): Int = (0 until descriptor.elementsCount).firstOrNull {
-    extractEnumElementDescriptor(
-        descriptor, it
-    ).ordinal == serialOrdinal
+): Int = (0..< descriptor.elementsCount).firstOrNull {
+    extractEnumElementDescriptor(descriptor, it).ordinal == serialOrdinal
 } ?: -1
