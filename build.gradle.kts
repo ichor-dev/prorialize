@@ -42,18 +42,12 @@ kotlin {
 	}
 
 	iosX64()
-	wasmWasi()
 	linuxX64()
 	mingwX64()
 	iosArm64()
 	macosX64()
 	macosArm64()
 	linuxArm64()
-
-	js {
-		browser()
-		nodejs()
-	}
 
 	sourceSets {
 		val commonMain by getting {
@@ -82,7 +76,7 @@ kotlin {
 tasks {
 	withType<DokkaTask>().configureEach {
 		dokkaSourceSets.configureEach {
-			documentedVisibilities.set(
+ 			documentedVisibilities.set(
 				setOf(
 					Visibility.PUBLIC,
 					Visibility.PROTECTED,
@@ -143,19 +137,13 @@ publishing {
 	repositories {
 		maven {
 			name = "ossrh"
-
 			setUrl(
-				if (!isSnapshot) "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
-				else "https://s01.oss.sonatype.org/content/repositories/snapshots"
+				if (!isSnapshot)
+					"https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
+				else
+					"https://s01.oss.sonatype.org/content/repositories/snapshots"
 			)
-
-			credentials {
-				username = System.getenv()["OSSRH_USERNAME"]
-				password = System.getenv()["OSSRH_PASSWORD"]
-			}
-			authentication {
-				create<BasicAuthentication>("basic")
-			}
+			credentials(PasswordCredentials::class)
 		}
 
 		// Here for instant availability
@@ -163,14 +151,7 @@ publishing {
 			name = "nyon"
 			url = uri("https://repo.nyon.dev/${if (!isSnapshot) "releases" else "snapshots"}")
 
-			credentials {
-				username = System.getenv()["NYON_USERNAME"]
-				password = System.getenv()["NYON_PASSWORD"]
-			}
-
-			authentication {
-				create<BasicAuthentication>("basic")
-			}
+			credentials(PasswordCredentials::class)
 		}
 	}
 
@@ -194,10 +175,12 @@ publishing {
 
 				licenses {
 					license {
-						name.set("Apache License 2.0")
-						url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+						name.set("GNU General Public License 3")
+						url.set("https://www.gnu.org/licenses/gpl-3.0.txt")
 					}
 				}
+
+				url.set("https://github.com/$githubRepo")
 
 				scm {
 					connection.set("scm:git:git://github.com/${githubRepo}.git")
