@@ -1,5 +1,3 @@
-@file:OptIn(org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl::class)
-
 import org.gradle.internal.logging.text.StyledTextOutput.Style.Failure
 import org.gradle.internal.logging.text.StyledTextOutput.Style.Success
 import org.gradle.internal.logging.text.StyledTextOutputFactory
