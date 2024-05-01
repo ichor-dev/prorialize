@@ -4,7 +4,6 @@ import org.gradle.internal.logging.text.StyledTextOutputFactory
 import org.gradle.kotlin.dsl.support.serviceOf
 import org.jetbrains.dokka.DokkaConfiguration.Visibility
 import org.jetbrains.dokka.gradle.DokkaTask
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
 plugins {
 	kotlin("multiplatform") version "1.9.23"
@@ -75,7 +74,7 @@ kotlin {
 tasks {
 	withType<DokkaTask>().configureEach {
 		dokkaSourceSets.configureEach {
- 			documentedVisibilities.set(
+			documentedVisibilities.set(
 				setOf(
 					Visibility.PUBLIC,
 					Visibility.PROTECTED,
@@ -119,11 +118,11 @@ githubRelease {
 	token(System.getenv()["github.token"])
 
 	val (owner, repo) = githubRepo.split('/')
-	owner(owner)
-	repo(repo)
-	tagName("v${project.version}")
-	overwrite(true)
-	targetCommitish("main")
+	this.owner = owner
+	this.repo = repo
+	this.tagName = "v${project.version}"
+	this.overwrite = true
+	this.targetCommitish = "main"
 }
 
 val dokkaJar: Jar = tasks.create<Jar>("dokkaJar") {
