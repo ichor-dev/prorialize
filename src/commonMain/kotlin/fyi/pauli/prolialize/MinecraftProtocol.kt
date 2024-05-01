@@ -42,7 +42,7 @@ public class MinecraftProtocol(
      * @param value the object, which should be transformed to a ByteArray
      * @returns the encoded ByteArray
      */
-    override fun <T> encodeToByteArray(serializer: SerializationStrategy<T>, value: T): ByteArray {
+    public override fun <T> encodeToByteArray(serializer: SerializationStrategy<T>, value: T): ByteArray {
         val buffer = Buffer()
         val encoder = MinecraftProtocolEncoder(buffer)
         encoder.encodeSerializableValue(serializer, value)

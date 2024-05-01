@@ -4,6 +4,7 @@ import org.gradle.internal.logging.text.StyledTextOutputFactory
 import org.gradle.kotlin.dsl.support.serviceOf
 import org.jetbrains.dokka.DokkaConfiguration.Visibility
 import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
 plugins {
 	kotlin("multiplatform") version "1.9.20"
@@ -93,7 +94,7 @@ tasks {
 	}
 }
 
-signing {
+configure<SigningExtension> {
 	val publications = extensions.getByType<PublishingExtension>().publications
 	val publicationCount = publications.size
 	val message =
@@ -103,7 +104,7 @@ signing {
 		else -> Success
 	}
 	serviceOf<StyledTextOutputFactory>().create("signing").style(style).println(message)
-	sign(publishing.publications)
+	sign(*publications.toTypedArray())
 
 	val signingTasks = tasks.filter { it.name.startsWith("sign") && it.name.endsWith("Publication") }
 	tasks.matching { it.name.startsWith("publish") }.configureEach {
@@ -133,16 +134,7 @@ val dokkaJar: Jar = tasks.create<Jar>("dokkaJar") {
 
 publishing {
 	repositories {
-		maven {
-			name = "ossrh"
-			setUrl(
-				if (!isSnapshot)
-					"https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
-				else
-					"https://s01.oss.sonatype.org/content/repositories/snapshots"
-			)
-			credentials(PasswordCredentials::class)
-		}
+
 
 		// Here for instant availability
 		maven {
