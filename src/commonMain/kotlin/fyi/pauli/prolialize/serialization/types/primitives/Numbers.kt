@@ -71,19 +71,15 @@ public object VarLongSerializer {
     public inline fun readVarLong(
         readByte: () -> Byte
     ): Long {
-        var numRead = 0
         var result = 0L
-        var read: Byte
-        do {
-            read = readByte()
-            val value = (read and SEGMENT_BITS).toLong()
-            result = result or (value shl 7 * numRead)
-            numRead++
-            if (numRead > 5) {
-                throw RuntimeException("VarLong is too big")
-            }
-        } while (read and CONTINUE_BIT != 0.toByte())
-        return result
+        var shift = 0
+        while (shift < 56) {
+            val next = readByte()
+            result = result or ((next.toInt() and 0x7F) shl shift).toLong()
+            if (next >= 0) return result
+            shift += 7
+        }
+        return result or ((readByte().toInt() and 0xFF) shl 56).toLong()
     }
 
     public inline fun writeVarLong(
