@@ -6,12 +6,10 @@ import org.jetbrains.dokka.DokkaConfiguration.Visibility
 import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
-	kotlin("multiplatform") version "1.9.23"
-	kotlin("plugin.serialization") version "1.9.23"
-
-	id("org.jetbrains.dokka") version "1.9.20"
-
-	id("com.github.breadmoirai.github-release") version "2.5.2"
+	alias(ichor.plugins.jetbrains.dokka)
+	alias(ichor.plugins.jetbrains.multiplatform)
+	alias(ichor.plugins.jetbrains.serialization)
+	alias(ichor.plugins.github.release)
 	`maven-publish`
 	signing
 }
@@ -50,22 +48,21 @@ kotlin {
 	sourceSets {
 		val commonMain by getting {
 			dependencies {
-				api("org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3")
-				api("org.jetbrains.kotlinx:kotlinx-io-core:0.3.3")
+				implementation(ichor.kotlinx.serialization)
+				implementation(ichor.kotlinx.io)
 			}
 		}
 
 		val commonTest by getting {
 			dependencies {
-				implementation(kotlin("test-common"))
-				implementation(kotlin("test-annotations-common"))
+				implementation(ichor.testing.kotlin.common)
+				implementation(ichor.testing.kotlin.annotations)
 			}
 		}
 
 		val jvmTest by getting {
 			dependencies {
-				implementation(kotlin("test-junit5"))
-				implementation("org.junit.jupiter:junit-jupiter-engine:5.10.2")
+				implementation(ichor.testing.junit)
 			}
 		}
 	}
