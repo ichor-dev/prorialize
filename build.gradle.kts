@@ -63,6 +63,7 @@ kotlin {
 		val jvmTest by getting {
 			dependencies {
 				implementation(ichor.testing.junit)
+				implementation(ichor.testing.kotlin.junit)
 			}
 		}
 	}
@@ -179,4 +180,8 @@ publishing {
 
 configure<PublishingExtension> {
 	publications.withType<MavenPublication>().configureEach { artifact(dokkaJar) }
+}
+
+tasks.withType<Test>().configureEach {
+	useJUnitPlatform()
 }
