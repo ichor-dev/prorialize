@@ -1,7 +1,7 @@
 package fyi.pauli.prolialize.serialization.types.primitives
 
-import kotlin.experimental.and
 import kotlin.experimental.or
+
 
 /**
  * @author btwonion
@@ -23,19 +23,22 @@ public object VarIntSerializer {
 	public inline fun readVarInt(
 		readByte: () -> Byte,
 	): Int {
-		var numRead = 0
-		var result = 0
-		var read: Byte
-		do {
-			read = readByte()
-			val value = (read and SEGMENT_BITS).toInt()
-			result = result or (value shl 7 * numRead)
-			numRead++
-			if (numRead > 5) {
-				throw RuntimeException("VarInt is too big")
-			}
-		} while (read and CONTINUE_BIT != 0.toByte())
-		return result
+		var value = 0
+		var position = 0
+		var currentByte: Byte
+
+		while (true) {
+			currentByte = readByte()
+			value = value or ((currentByte.toInt() and SEGMENT_BITS.toInt()) shl position)
+
+			if ((currentByte.toInt() and CONTINUE_BIT.toInt()) == 0) break
+
+			position += 7
+
+			if (position >= 32) throw RuntimeException("VarInt is too big")
+		}
+
+		return value
 	}
 
 	public inline fun writeVarInt(
@@ -96,7 +99,6 @@ public object VarLongSerializer {
 		var v = value
 		do {
 			var temp = (v and SEGMENT_BITS.toLong()).toByte()
-			// Note: >>> means that the sign bit is shifted with the rest of the number rather than being left alone
 			v = v ushr 7
 			if (v != 0L) {
 				temp = temp or CONTINUE_BIT
