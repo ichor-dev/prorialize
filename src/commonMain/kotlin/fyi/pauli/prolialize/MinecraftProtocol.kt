@@ -29,7 +29,6 @@ public class MinecraftProtocol(
 	 * @param bytes the input ByteArray the object should be read from
 	 * @returns the decoded object
 	 */
-	@InternalSerializationApi
 	public override fun <T> decodeFromByteArray(deserializer: DeserializationStrategy<T>, bytes: ByteArray): T {
 		val decoder = MinecraftProtocolDecoder(Buffer().also { it.write(bytes) })
 
