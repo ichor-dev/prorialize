@@ -1,7 +1,9 @@
 # prorialize
+
 > Kotlin.serialization library for the Minecraft protocol.
 
 ## Example
+
 ```kotlin
 import kotlin.random.Random
 import fyi.pauli.prolialize.MinecraftProtocol
@@ -23,4 +25,5 @@ fun main() {
 ```
 
 ## Docs
+
 The docs can be found on [GitHub Pages](https://ichor-dev.github.io/prorialize/).

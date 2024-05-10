@@ -17,7 +17,7 @@ import kotlinx.serialization.SerialInfo
 @SerialInfo
 @Target(AnnotationTarget.PROPERTY)
 public annotation class NumberType(
-    val type: MinecraftNumberType = MinecraftNumberType.DEFAULT
+	val type: MinecraftNumberType = MinecraftNumberType.DEFAULT,
 )
 
 /**
@@ -26,7 +26,7 @@ public annotation class NumberType(
 @SerialInfo
 @Target(AnnotationTarget.PROPERTY, AnnotationTarget.CLASS)
 public annotation class StringLength(
-    val maxLength: Int
+	val maxLength: Int,
 )
 
 /**
@@ -35,7 +35,7 @@ public annotation class StringLength(
 @SerialInfo
 @Target(AnnotationTarget.CLASS, AnnotationTarget.PROPERTY, AnnotationTarget.VALUE_PARAMETER)
 public annotation class EnumType(
-    val type: MinecraftEnumType = MinecraftEnumType.VAR_INT
+	val type: MinecraftEnumType = MinecraftEnumType.VAR_INT,
 )
 
 /**
@@ -44,7 +44,7 @@ public annotation class EnumType(
 @SerialInfo
 @Target(AnnotationTarget.PROPERTY)
 public annotation class EnumSerial(
-    val ordinal: Int
+	val ordinal: Int,
 )
 
 /**

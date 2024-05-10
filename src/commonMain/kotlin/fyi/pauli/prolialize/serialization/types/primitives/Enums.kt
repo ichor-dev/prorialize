@@ -7,5 +7,5 @@ package fyi.pauli.prolialize.serialization.types.primitives
  * Defines the binary format for an enum.
  */
 public enum class MinecraftEnumType {
-    VAR_INT, BYTE, UNSIGNED_BYTE, INT, STRING
+	VAR_INT, BYTE, UNSIGNED_BYTE, INT, STRING
 }

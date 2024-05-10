@@ -10,15 +10,15 @@ import fyi.pauli.prolialize.serialization.types.primitives.MinecraftNumberType
  * Description objects used while en-/decoding.
  */
 internal data class ProtocolDesc(
-    val type: MinecraftNumberType,
-    val maxStringLength: Int
+	val type: MinecraftNumberType,
+	val maxStringLength: Int,
 )
 
 internal data class ProtocolEnumDesc(
-    val type: MinecraftEnumType,
-    val stringMaxLength: Int
+	val type: MinecraftEnumType,
+	val stringMaxLength: Int,
 )
 
 internal data class ProtocolEnumElementDesc(
-    val ordinal: Int
+	val ordinal: Int,
 )

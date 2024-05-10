@@ -21,8 +21,8 @@ public const val CONTINUE_BIT: Byte = 0x80.toByte() // 128
  */
 public object VarIntSerializer {
 	public inline fun readVarInt(
-      readByte: () -> Byte,
-  ): Int {
+		readByte: () -> Byte,
+	): Int {
 		var numRead = 0
 		var result = 0
 		var read: Byte
@@ -69,24 +69,24 @@ public object VarIntSerializer {
  */
 public object VarLongSerializer {
 	public inline fun readVarLong(
-      readByte: () -> Byte,
-  ): Long {
-      var value: Long = 0
-      var position = 0
-      var currentByte: Byte
+		readByte: () -> Byte,
+	): Long {
+		var value: Long = 0
+		var position = 0
+		var currentByte: Byte
 
-      while (true) {
-          currentByte = readByte()
-          value = value or ((currentByte.toInt() and SEGMENT_BITS.toInt()).toLong() shl position)
+		while (true) {
+			currentByte = readByte()
+			value = value or ((currentByte.toInt() and SEGMENT_BITS.toInt()).toLong() shl position)
 
-          if ((currentByte.toInt() and CONTINUE_BIT.toInt()) == 0) break
+			if ((currentByte.toInt() and CONTINUE_BIT.toInt()) == 0) break
 
-          position += 7
+			position += 7
 
-          if (position >= 64) throw RuntimeException("VarLong is too big")
-      }
+			if (position >= 64) throw RuntimeException("VarLong is too big")
+		}
 
-      return value
+		return value
 	}
 
 	public inline fun writeVarLong(
